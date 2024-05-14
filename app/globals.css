@@ -1,6 +1,6 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; 
 
 * {
   margin: 0;
@@ -55,10 +55,6 @@
 
 /* ==== clerk class override ===== */
 
-.cl-providerIcon__github{
-  filter: invert(1);
-}
-
 .cl-userButtonPopoverActionButtonIcon {
   color: white;
 }
@@ -97,7 +93,7 @@
 /* animation */
 
 .show-block {
-  width: 100%; 
+  width: 100%;
   max-width: 350px;
   display: block;
   animation: show 0.7s forwards linear;
