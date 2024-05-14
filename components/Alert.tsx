@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { Button } from './ui/button';
-import { Card, CardContent } from './ui/card';
+// import { Card, CardContent } from './ui/card';
 
 interface PermissionCardProps {
   title: string;
@@ -12,7 +12,7 @@ interface PermissionCardProps {
 const Alert = ({ title, iconUrl }: PermissionCardProps) => {
   return (
     <section className="flex-center h-screen w-full">
-      <Card className="w-full max-w-[520px] border-none bg-dark-1 p-6 py-9 text-white">
+      {/* <Card className="w-full max-w-[520px] border-none bg-dark-1 p-6 py-9 text-white">
         <CardContent>
           <div className="flex flex-col gap-9">
             <div className="flex flex-col gap-3.5">
@@ -29,7 +29,7 @@ const Alert = ({ title, iconUrl }: PermissionCardProps) => {
             </Button>
           </div>
         </CardContent>
-      </Card>
+      </Card> */}
     </section>
   );
 };
