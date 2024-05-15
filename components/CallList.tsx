@@ -1,18 +1,20 @@
 'use client';
 
-import { Call, CallRecording } from '@stream-io/video-react-sdk';
-
-import Loader from './Loader';
 import { useGetCalls } from '@/hooks/useGetCalls';
-import MeetingCard from './MeetingCard';
-import { useEffect, useState } from 'react';
+import { Call, CallRecording } from '@stream-io/video-react-sdk';
 import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react'
+import Loader from './Loader';
+import MeetingCard from './MeetingCard';
 
-const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
+const CallList = ( { type } : { type : "ended" | "upcoming" | "recordings" } ) => {
+
   const router = useRouter();
   const { endedCalls, upcomingCalls, callRecordings, isLoading } =
     useGetCalls();
   const [recordings, setRecordings] = useState<CallRecording[]>([]);
+
+
 
   const getCalls = () => {
     switch (type) {
@@ -41,8 +43,6 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
   };
 
   useEffect(() => {
- 
-
     const fetchRecordings = async () => {
       const callData = await Promise.all(
         callRecordings?.map((meeting) => meeting.queryRecordings()) ?? [],
@@ -64,7 +64,6 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
 
   const calls = getCalls();
   const noCallsMessage = getNoCallsMessage();
-
   return (
     <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
       {calls && calls.length > 0 ? (
@@ -80,7 +79,7 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
             }
             title={
               (meeting as Call).state?.custom?.description ||
-              (meeting as CallRecording).filename?.substring(0, 26) ||
+              (meeting as CallRecording).filename?.substring(0, 20) ||
               'Personal Meeting'
             }
             date={
@@ -109,4 +108,4 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
   );
 };
 
-export default CallList;
+export default CallList
